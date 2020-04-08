@@ -1,1 +1,6 @@
 # terraform-gke
+
+
+```
+$ make cred
+```
