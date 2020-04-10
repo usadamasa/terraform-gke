@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+
+spec:
+  containers:
+    - name: myapp
+      image: busybox
+      command:
+        - sleep
+        - "3600"
+      livenessProbe:
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        exec:
+          command:
+            - cat
+            - /tmp/healthy
+      readinessProbe:
+        initialDelaySeconds: 5
+        periodSeconds: 20
+        httpGet:
+          port: 8080
+          path: /healthz
+          httpHeaders:
+            - name: X-k8s-Header
+              value: readiness

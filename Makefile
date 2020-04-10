@@ -1,5 +1,5 @@
 CLUSTER_NAME := my-gke-cluster
-ZONE := aisa-northeast1-a
+ZONE := asia-northeast1
 
 cred:
 	gcloud container clusters get-credentials $(CLUSTER_NAME) --zone $(ZONE)

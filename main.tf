@@ -21,14 +21,14 @@ resource "google_container_node_pool" "primary_nodes" {
   name       = "my-gke-node-pool"
   location   = var.location
   cluster    = google_container_cluster.primary.name
-  node_count = 3
+  node_count = 1
 
   management {
     auto_repair = true
   }
 
   node_config {
-    machine_type = "n1-standard-2"
+    machine_type = "n1-standard-1"
 
     metadata = {
       disable-legacy-endpoints = "true"
