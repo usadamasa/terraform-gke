@@ -8,7 +8,7 @@ app:
 	terraform apply -auto-approve
 
 setns:
-	kubectl config set-context $(kubectl config current-context) --namespace=sock-shop
+	kubectl config set-context `kubectl config current-context` --namespace=sock-shop
 
 cred:
 	gcloud container clusters get-credentials $(CLUSTER_NAME) --zone $(ZONE)
