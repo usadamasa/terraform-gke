@@ -10,5 +10,8 @@ app:
 setns:
 	kubectl config set-context `kubectl config current-context` --namespace=sock-shop
 
+destroy:
+	terraform destroy
+
 cred:
 	gcloud container clusters get-credentials $(CLUSTER_NAME) --zone $(ZONE)
